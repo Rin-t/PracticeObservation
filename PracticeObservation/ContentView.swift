@@ -8,17 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //@State private var viewModel = ObservationFruitViewModel()
+    @StateObject private var viewModel = ObservableObjectFruit()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+
+            Button("add peach") {
+                viewModel.tappedAddPeachButton()
+            }
+            .padding(.vertical, 24)
+
+            Text("ももを\(viewModel.addedPeachCount)回追加しました")
+
+            List(viewModel.fruits, id: \.self) { item in
+                Text(item)
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
