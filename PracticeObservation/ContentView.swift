@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    //@State private var viewModel = ObservationFruitViewModel()
-    @StateObject private var viewModel = ObservableObjectFruit()
+
+    @State private var viewModel = ObservationFruitViewModel()
 
     var body: some View {
         VStack {
@@ -19,8 +18,6 @@ struct ContentView: View {
                 viewModel.tappedAddPeachButton()
             }
             .padding(.vertical, 24)
-
-            Text("ももを\(viewModel.addedPeachCount)回追加しました")
 
             List(viewModel.fruits, id: \.self) { item in
                 Text(item)

@@ -5,21 +5,13 @@
 //  Created by Rin on 2024/02/07.
 //
 
-import Foundation
 import Combine
 
-final class ObservableObjectFruit: ObservableObject {
+final class ObservableObjectFruitViewModel: ObservableObject {
 
-    @Published var fruits = ["りんご", "ばなな", "みかん"]
-
-    var addedPeachCount = 0
-
-    init() {
-        print("init")
-    }
+    var fruits = ["りんご", "ばなな", "みかん", "ぶどう", "さくらんぼ"]
 
     func tappedAddPeachButton() {
         fruits.append("もも")
-        addedPeachCount += 1
     }
 }
